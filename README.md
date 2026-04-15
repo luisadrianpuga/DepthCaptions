@@ -11,7 +11,7 @@ Each spoken word is transcribed with Whisper, rendered at full frame-width, and 
 **Requirements:** Python 3.10+, `ffmpeg` on PATH (`brew install ffmpeg`)
 
 ```bash
-git clone https://github.com/your-username/DepthCaptions
+git clone https://github.com/luisadrianpuga/DepthCaptions
 cd DepthCaptions
 pip install -e .
 ```
