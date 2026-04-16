@@ -35,11 +35,14 @@ def add_captions(
     output_video: str,
     whisper_model: str = "base",
     text_opacity: float = 0.72,
-    text_y_position: float = 0.38,
-    text_fill_width: float = 0.88,
+    text_y_position: float = 0.25,
+    font_size_fraction: float = 0.22,
+    text_auto_color: bool = True,
+    text_smart_position: bool = True,
     font_path: str | None = None,
     segmentation_threshold: float = 0.6,
     mask_blur_radius: int = 5,
+    crop_aspect_ratio: str | None = None,
 ) -> str:
     """
     Add "text behind person" captions to a video.
@@ -57,6 +60,7 @@ def add_captions(
         font_path: Optional path to a .ttf font file. Auto-detected if omitted.
         segmentation_threshold: MediaPipe confidence cutoff for person mask. Default 0.6.
         mask_blur_radius: Feathering on person mask edges in pixels. Default 5.
+        crop_aspect_ratio: Center-crop to this aspect ratio before processing, e.g. "4:3" or "1:1". None = no crop.
 
     Returns:
         Confirmation message with the output path.
@@ -65,10 +69,13 @@ def add_captions(
         whisper_model=whisper_model,
         text_opacity=text_opacity,
         text_y_position=text_y_position,
-        text_fill_width=text_fill_width,
+        font_size_fraction=font_size_fraction,
+        text_auto_color=text_auto_color,
+        text_smart_position=text_smart_position,
         font_path=font_path,
         segmentation_threshold=segmentation_threshold,
         mask_blur_radius=mask_blur_radius,
+        crop_aspect_ratio=crop_aspect_ratio,
     )
 
     out = process_video(input_video, output_video, cfg)

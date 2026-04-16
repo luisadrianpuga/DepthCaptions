@@ -13,12 +13,19 @@ class Config:
 
     # --- Captions ---
     font_path: str | None = None      # None = auto-detect system font
-    text_color: tuple = (15, 15, 15)
-    text_opacity: float = 0.72        # 0.0–1.0
+    font_size_fraction: float = 0.22  # fallback font size as fraction of frame height
+    text_fill_width: float = 0.88    # scale font so word fills this fraction of frame width
+    text_opacity: float = 0.88        # 0.0–1.0
     text_outline_width: int = 0
     text_outline_color: tuple = (0, 0, 0)
-    text_y_position: float = 0.38     # 0.0 = top, 1.0 = bottom
-    text_fill_width: float = 0.88     # word fills this fraction of frame width
+    text_y_position: float = 0.18     # 0.0 = top, 1.0 = bottom
+    text_auto_color: bool = True      # pick white/dark based on background luminance
+    text_color: tuple = (15, 15, 15)  # used only when text_auto_color = False
+    text_smart_position: bool = True  # shift text horizontally away from person
+    text_position_padding: float = 0.05  # min margin from frame edges (fraction of width)
+
+    # --- Crop ---
+    crop_aspect_ratio: str | None = None  # e.g. "4:3", "1:1", "16:9" — None = no crop
 
     # --- Segmentation ---
     segmentation_threshold: float = 0.6

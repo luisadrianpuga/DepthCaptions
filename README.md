@@ -4,6 +4,8 @@ Add word-by-word captions that appear **behind the person** in a video.
 
 Each spoken word is transcribed with Whisper, rendered at full frame-width, and composited between the background and the subject using MediaPipe segmentation — so the text reads through the person like a depth effect.
 
+![DepthCaptions preview](docs/preview.jpg)
+
 ---
 
 ## Install
